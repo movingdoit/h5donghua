@@ -1,0 +1,173 @@
+/* 简化的详情弹窗过渡动画 */
+.detail-fade-enter-active,
+.detail-fade-leave-active {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.detail-fade-enter-from {
+  opacity: 0;
+  transform: scale(0.9) translateY(20px);
+}
+
+.detail-fade-leave-to {
+  opacity: 0;
+  transform: scale(1.1) translateY(-20px);
+}
+
+/* 全屏节气详情弹窗样式 */
+.detail-modal-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+}
+
+.detail-content-fullscreen {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.close-btn-fullscreen {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  transition: all 0.3s ease;
+}
+
+.close-btn-fullscreen:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: scale(1.1);
+}
+
+/* 语音控制按钮 */
+.speech-control-btn {
+  position: absolute;
+  top: 20px;
+  right: 80px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  transition: all 0.3s ease;
+}
+
+.speech-control-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: scale(1.1);
+}
+
+/* 文字播报显示样式 */
+.speech-text-display {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10001;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 25px;
+  padding: 15px 25px;
+  max-width: 80%;
+  backdrop-filter: blur(10px);
+  animation: slideUpFade 0.5s ease-out;
+}
+
+.speech-text-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.speech-text-icon {
+  font-size: 1.2rem;
+  animation: pulse 1.5s infinite;
+}
+
+.speech-text-scroll {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  max-height: 60px;
+  overflow: hidden;
+  animation: textScroll 0.5s ease-out;
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes textScroll {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+  .close-btn-fullscreen {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    top: 15px;
+    right: 15px;
+  }
+  
+  .speech-control-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+    top: 15px;
+    right: 70px;
+  }
+  
+  .speech-text-display {
+    bottom: 15px;
+    max-width: 90%;
+    padding: 12px 20px;
+  }
+  
+  .speech-text-scroll {
+    font-size: 0.8rem;
+    max-height: 50px;
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "seasonal-wisdom-h5",
+  "version": "1.0.0",
+  "description": "清风伴节气 廉韵润心田 - 二十四节气廉政教育H5动画",
+  "main": "src/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:local": "node build-local.js",
+    "preview": "vite preview",
+    "serve": "vite preview --port 3000",
+    "serve:dist": "npx serve dist -p 3000"
+  },
+  "dependencies": {
+    "vue": "^3.3.0",
+    "vue-router": "^4.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.0",
+    "terser": "^5.44.0",
+    "vite": "^4.3.0"
+  },
+  "keywords": [
+    "vue3",
+    "h5",
+    "animation",
+    "chinese-culture",
+    "24-solar-terms",
+    "integrity-education"
+  ],
+  "author": "中国热科院纪检组",
+  "license": "MIT"
+}
